@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP explore</title>
+    <style>
+        div {
+            padding: 1rem;
+        }
+
+        fieldset {
+            padding: 2rem;
+        }
+
+        #response {
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <form action="https://www.httpbin.org/post" id="test_form">
+
+    <div>
+        <label for="fake-id">Id: </label>
+        <input type="text" name="fake-id" id="fake-id">
+    </div>
+    <div>
+        <label for="article-name">Article Name: </label>
+        <input type="text" name="article-name" id="article-name">
+    </div>
+    <div>
+        <label for="article-body">Article Body: </label>
+        <textarea id="article-body" name="article-body" cols="30" rows="10"></textarea>
+    </div>
+    <input type="hidden" name="date" id="date">
+
+
+    <div>
+        <!-- <button type="submit">Send</button> -->
+        <button type="button" id="postBtn">postBtn</button>
+        <button type="button" id="getBtn">getBtn</button>
+        <button type="button" id="putBtn">putBtn</button>
+        <button type="button" id="deleteBtn">deleteBtn</button>
+    </div>
+
+    <fieldset>
+        <legend>Ajax/Fetch Server Response</legend>
+
+            <output id="response"></output>
+
+        </fieldset>
+
+    </form>
+    <script type="module">
+        import {init} from './method.js';
+
+        window.addEventListener('DOMContentLoaded', init ());
+        document.getElementById ('date').value = new Date ();
+    </script>
+</body>
+</html>
